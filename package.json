@@ -1,0 +1,30 @@
+{
+  "name": "clontest2023",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fontsource/open-sans": "^4.5.14",
+    "@fontsource/righteous": "^4.5.7",
+    "next": "13.3.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-dom-confetti": "^0.2.0"
+  },
+  "devDependencies": {
+    "standard": "16.0.3"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "test",
+      "expect",
+      "afterAll"
+    ]
+  }
+}

@@ -1,0 +1,413 @@
+/* .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 750px;
+  padding: 3rem;
+  min-height: 100vh;
+  /* position */
+/* } */ 
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 750px;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.heroSelectionContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10% 0;
+}
+
+.selectionTitleContainter  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+  height: 100px;
+}
+
+.selectionTitle {
+  font-size: 40px;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.questContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  width: 20%;
+}
+
+.closeIcon:hover {
+  transform: scale(1.1);
+}
+
+.heroContainer {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 750px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  padding-bottom: 42%;
+  padding-top: 3%;
+}
+
+
+.coverImageContainer {
+  position: fixed;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.coverImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
+  }
+
+  .logo {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/*******************************************/
+
+/* BallAnimation.css */
+.zoomContainer {
+  position: relative;
+  width: 400px;
+  height: 50px;
+}
+
+.zoom {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: zoom 2s infinite;
+}
+
+@keyframes zoom {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(350px);
+  }
+}
+
+
+/*******************************************/
+
+.circlePath {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.floating {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 75px;
+  height: 75px;
+  transform-origin: 100px 100px;
+  animation: floatInCircle 4s linear infinite;
+}
+
+@keyframes floatInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  /* 50% {
+    transform: rotate(180deg) scale(.5);
+  } */
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*******************************************/
+
+.levitate {
+  width: 100px;
+  height: 100px;
+  animation: levitate 2s ease-in-out infinite;
+}
+
+@keyframes levitate {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+/*******************************************/
+
+.petballContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.petball {
+  width: 350px;
+  height: 350px;
+  animation: twitch 1s infinite;
+  /* cursor: pointer; */
+}
+
+.petball img {
+  width: 100%;
+  height: 100%;
+}
+
+.petball:hover {
+  animation: twitch .5s infinite;
+}
+
+.shadow {
+  position: absolute;
+  bottom: -40px;
+  /* left: 25px; */
+  width: 350px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  z-index: -1;
+  animation: shadow 1s infinite;
+}
+
+@keyframes twitch {
+  0%, 100% {
+      transform: translateY(0) rotate(0);
+  }
+  25% {
+      transform: translateY(-5px) rotate(-5deg);
+  }
+  50% {
+      transform: translateY(0) rotate(0);
+  }
+  75% {
+      transform: translateY(-5px) rotate(5deg);
+  }
+}
+
+@keyframes shadow {
+  0%, 100% {
+      transform: scaleX(1) translateX(0);
+  }
+  25% {
+      transform: scaleX(1.1) translateX(-2px);
+  }
+  50% {
+      transform: scaleX(1) translateX(0);
+  }
+  75% {
+      transform: scaleX(1.1) translateX(2px);
+  }
+}
+
+/*******************************************/
+
+.kadabra {
+  max-width: 900px;
+  width: 100%;
+}
+
+/*******************************************/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.column {
+  padding: 10px;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*******************************************/
+
+.bigTvHead {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  margin-top: -30%;
+}
+.bigTvHead .tvHead {
+  transform: scale(2);
+}
+.bigTvHead .hero {
+  transform: translateX(-50%) translateY(-50%) scale(2);
+}
+.bigTvHead .tvScreen {
+  background-color: rgba(98, 124, 1, .1);
+  transform: scale(2);
+}
+
+.tvHeadContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.tvHead {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* z-index: 3; */
+}
+.heroContainer .tvHeadContainer:hover .tvHead {
+  transform: scale(1.01);
+}
+.heroContainer .tvHeadContainer:hover .hero {
+  transform: translateX(-50%) translateY(-50%) scale(1.01);
+}
+.heroContainer .tvHeadContainer:hover .tvScreen {
+  background-color: rgba(98, 124, 1, .1);
+}
+.hero {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 145px;
+  /* z-index: 1; */
+}
+
+.tvScreen {
+  position: absolute;
+  width: 142px;
+  height: 130px;
+  background-color: rgba(98, 124, 1, .7);
+  overflow: hidden;
+  top: 45px;
+  left: 25px;
+}
+
+.tvScreen:before,
+.tvScreen:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.2) 50%, transparent 50%);
+  background-size: 100% 200%;
+  animation: glitch 2s infinite;
+}
+
+.heroContainer .tvHeadContainer:hover .tvScreen:before {
+  animation: glitch 1s infinite;
+}
+
+.tvHeadContainer:hover .tvScreen:after {
+  animation: glitch .5s .15s infinite;
+}
+
+
+.tvScreen:after {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 100, 0.5));
+  animation: glitch 2s 0.25s infinite;
+}
+
+@keyframes glitch {
+  0% {
+      transform: translateY(0) scaleY(1);
+      background-position: 0 0;
+  }
+  10% {
+      transform: translateY(-5%) scaleY(0.95);
+      background-position: 0 100%;
+  }
+  20% {
+      transform: translateY(0) scaleY(1);
+      background-position: 0 0;
+  }
+  30% {
+      transform: translateY(5%) scaleY(1.05);
+      background-position: 0 100%;
+  }
+  40% {
+      transform: translateY(0) scaleY(1);
+      background-position: 0 0;
+  }
+  100% {
+      transform: translateY(0) scaleY(1);
+      background-position: 0 0;
+  }
+}
+
+/*******************************************/
+
+.loadingContainer {
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 100%;
+}
