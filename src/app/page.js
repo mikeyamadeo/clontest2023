@@ -1,7 +1,7 @@
 'use client'
 // import Image from 'next/image'
 import styles from './page.module.css'
-import Menu from '@ui/Menu'
+import Menu from '@ui/menu'
 import { createContext, useState, useContext, useEffect } from 'react'
 import '@fontsource/open-sans/400.css' // Regular weight
 import '@fontsource/open-sans/700.css' // Bold weight
@@ -355,7 +355,6 @@ const HeroQuestScreen = ({ hero, onClose }) => {
 
 const Champion = () => {
   const { champ, playAgain } = useContext(State)
-  console.log({ champ })
   return (
     <>
       <ConfettiAnimation />
@@ -379,9 +378,9 @@ function Home () {
     <>
 
       <div className={styles.container}>
-        {stage === 2 && <Petball />}
+        {stage === 0 && <Petball />}
         {stage === 1 && <Kadabra />}
-        {stage === 0 && <Heroes />}
+        {stage === 2 && <Heroes />}
         {stage === 3 && <Champion />}
       </div>
 

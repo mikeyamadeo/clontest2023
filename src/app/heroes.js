@@ -4,7 +4,7 @@ export const heroConfig = {
     alive: {
       name: 'Bun',
       imgSrc: 'heroes/bun.png',
-      script: 'this is bun script'
+      script: 'Oh wow. Have you seen the Cool Score on this face face rilla? Seems Promising'
     },
     ded: {
       name: 'Jail Bun Bait',
@@ -21,7 +21,7 @@ export const heroConfig = {
     alive: {
       name: 'Tasty Snacks',
       imgSrc: 'heroes/tasty.png',
-      script: 'tasty script'
+      script: 'No one has played this role so well since Heath Ledger. I like our chances.'
     },
     ded: {
       name: 'Ded Snax',
@@ -38,12 +38,12 @@ export const heroConfig = {
     alive: {
       name: 'Elu',
       imgSrc: 'heroes/elu.png',
-      script: 'elu script'
+      script: 'This boy tends to do what he puts his mind to. I like our chances'
     },
     ded: {
       name: 'Elost',
       imgSrc: 'heroes/elu-ded.png',
-      script: 'As Elu was about to be Abra Kadabra\'d he screamed "What is dead can never die!!!" As prophesied, what should have killed him resulted in Elu turning into the character he poured his soul into. Impressed by these turn of events, Kadabra granted him the power to be whatever he wanted in the afterlife.'
+      script: 'As Elu was about to be Abra Kadabra\'d he screamed "WHAT IS DEAD CAN NEVER DIE!!!" As prophesied, what should have killed him resulted in Elu turning into the character he poured his soul into. Impressed by these turn of events, Kadabra granted him the power to be whatever he wanted in the afterlife.'
     },
     champ: {
       name: 'Elu',
@@ -55,17 +55,17 @@ export const heroConfig = {
     alive: {
       name: 'Lynq',
       imgSrc: 'heroes/lynq.png',
-      script: 'this is lynq script'
+      script: 'Lynq the Lore Master! He must know some deep magic to help recover these pets!'
     },
     ded: {
       name: 'Lynq',
-      imgSrc: '',
-      script: 'ded lynq script'
+      imgSrc: 'heroes/lynq-ded.png',
+      script: 'Turns out Kadabra wasn\'t on any of Lynqs maps! Something about about spoon interferance. Lynq was caught so off guard that he was unable to stop the spell that turned him into a frog.'
     },
     champ: {
       name: 'Lynq',
       imgSrc: 'heroes/lynq.png',
-      script: ''
+      script: 'Lynq challenged Kadabra to a Lore Off and... was declined. But Kadabra loves frogs so after a long discussion about $pepe total market cap and animated baby froggos Kadabra just let Lynq have the pets 🤷‍♀️'
     }
   },
   nftnick: {
@@ -77,7 +77,7 @@ export const heroConfig = {
     ded: {
       name: 'NFT Nick',
       imgSrc: 'heroes/nftnick.png',
-      script: 'NFT Nick got acquired OANN'
+      script: 'NFT Nick got acquired OANN. Except they quickly let him go due to unreliable reporting'
     }
   },
   goodknight: {
