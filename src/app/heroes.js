@@ -4,34 +4,38 @@ export const heroConfig = {
     alive: {
       name: 'Bun',
       imgSrc: 'heroes/bun.png',
-      script: 'Oh wow. Have you seen the Cool Score on this face face rilla? Seems Promising'
+      script: 'Oh wow. Have you seen the Cool Score on this face face ape? Seems rilla rilla promising'
     },
     ded: {
       name: 'Jail Bun Bait',
       imgSrc: 'heroes/bun-ded.png',
-      script: 'On the way to confront Kadabra and rescue the pets, Ser "Dirty" Buns was pulled over and arrested for repeated indecent nipple exposure. Turns out you can\'t save pets from jail'
+      script: `On the way to confront Kadabra 🥄✨ and rescue the pets, Ser "Dirty" Buns was pulled over and arrested for repeated indecent nipple exposure...
+      And it turns out you can't save pets from jail`
     },
     champ: {
       name: 'Bunner',
       imgSrc: 'heroes/bun-champ.png',
-      script: 'Kadabra had our Dirty boi against the ropes... until ser buns saw the poor pets in their balls... which sent him in to an ever mounting rage leading to his evolution and victory over the great wizard.'
+      script: `Kadabra 🥄✨ had our Dirty boi against the ropes...
+      until ser buns saw the poor pets in the shadowballs...
+      which sent him in to an ever mounting rage leading to his evolution and victory over the great wizard.`
     }
   },
   tasty: {
     alive: {
       name: 'Tasty Snacks',
       imgSrc: 'heroes/tasty.png',
-      script: 'No one has played this role so well since Heath Ledger. I like our chances.'
+      script: 'The last person to play this role as well as Tasty was Heath Ledger. I like our chances.'
     },
     ded: {
       name: 'Ded Snax',
       imgSrc: 'heroes/tasty-ded.png',
-      script: 'Kadabra turned Tasty into a baja blast and started sucking out his noggin'
+      script: 'The curse of playing Joker continues... Kadabra 🥄✨ turned Tasty into a baja blast and started slurping out his noggin.'
     },
     champ: {
       name: 'Tasty Snacks',
       imgSrc: 'heroes/tasty.png',
-      script: 'Some say they hadn\'t seen such bravery since Tasty drummed up the Cool Cat community to bring the Macy\'s day parade. This same courage and bravery earned pets freedom from Kadabra the cursed.'
+      script: `Some say they hadn't seen such bravery since Tasty drummed up the Cool Cat community to bring Blue to the Macy's day parade.
+      This same courage and bravery earned pets freedom from Kadabra the cursed.`
     }
   },
   elu: {
@@ -43,7 +47,13 @@ export const heroConfig = {
     ded: {
       name: 'Elost',
       imgSrc: 'heroes/elu-ded.png',
-      script: 'As Elu was about to be Abra Kadabra\'d he screamed "WHAT IS DEAD CAN NEVER DIE!!!" As prophesied, what should have killed him resulted in Elu turning into the character he poured his soul into. Impressed by these turn of events, Kadabra granted him the power to be whatever he wanted in the afterlife.'
+      script: `As Elu was about to be Abra Kadabra'd he screamed:
+      
+"WHAT IS DEAD CAN NEVER DIE!!!" 
+
+As prophesied, what should have killed him resulted in Elu turning into the character he poured his soul into.
+
+Impressed by these turn of events, Kadabra  🥄✨ granted him the ability to be whatever he wanted in the afterlife.`
     },
     champ: {
       name: 'Elu',
@@ -72,29 +82,34 @@ export const heroConfig = {
     alive: {
       name: 'NFT Nick',
       imgSrc: 'heroes/nftnick.png',
-      script: 'The hero nobody wants but unfortunately the web 3 space deserves'
+      script: 'The hero no cat wants but unfortunately the web 3 space deserves'
     },
     ded: {
       name: 'NFT Nick',
       imgSrc: 'heroes/nftnick.png',
-      script: 'NFT Nick got acquired OANN. Except they quickly let him go due to unreliable reporting'
+      script: 'NFT Nick got acquired by OANN and was unavailable. Except they quickly let him go due to unreliable reporting'
     }
   },
   goodknight: {
     alive: {
       name: 'The Good Knight',
       imgSrc: 'heroes/goodknight.png',
-      script: 'This should be good'
+      script: `Coming out swinging with this choice eh? The Good Knight is basically the Achilles of Cooltopia.
+
+Kadabra 🥄✨ stands no chance`
     },
     ded: {
       name: 'The Dead Knight',
       imgSrc: 'heroes/goodknight-ded.png',
-      script: 'It is good night to The Good Knight. The brave soul got hit by an Avada Kadabra and was roasted in his armor. RIP Townhall Threads.'
+      script: `It is good night 💤 to The Good Knight.
+
+The brave soul got hit by an Avada Kadabra 🥄✨ and was roasted in his armor. RIP Townhall Threads 🪦`
     },
     champ: {
       name: 'The Great Knight',
       imgSrc: 'heroes/goodknight.png',
-      script: 'With the might of the Cool Cats counsel at his back, The Great Knight struck Kadabra down with a fierce quote tweet that left the grand wizard no choice but to delete twitter and relinquish the pets.'
+      script: `With the might of the Cool Cats counsel at his back...
+The Great Knight struck Kadabra 🥄✨ down with a fierce quote tweet that left the grand wizard no choice but to delete twitter and relinquish the pets.`
     }
   }
 }

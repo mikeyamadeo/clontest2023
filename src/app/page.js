@@ -140,7 +140,7 @@ const Kadabra = () => {
           alt='Kadabra'
         />
       </div>
-      <Menu chat='Kadabra, the most aesthetically pleasing shadow wolf alive, has been capturing pets in shadow balls! Something must bet done be for he catches them all!' cta='Get Help' action={triggerNextStage} />
+      <Menu chat='Kadabra 🥄✨, the most aesthetically pleasing shadow wolf alive, has been capturing pets in shadow balls! Something must bet done be for he catches them all!' cta='Send Halp!' action={triggerNextStage} />
     </>
   )
 }
@@ -183,11 +183,16 @@ const states = {
   ded: 'DED',
   select: 'SELECT'
 }
+const HERO_INSTRUCTIONS = `Select A Hero!
+
+But choose wisely... only one hero can muster the capacity to defeat the great Kadabra 🥄✨ at a time. Some never can!
+
+Choose wrong thrice and Kadabra 🥄✨ wins!`
 const Heroes = () => {
   const { crownChampion } = useContext(State)
   const cta = {
     [states.ready]: 'Send Hero',
-    [states.ded]: 'Select New'
+    [states.ded]: 'Select New Hero'
   }
 
   const [title, setTitle] = useState()
@@ -215,7 +220,6 @@ const Heroes = () => {
   const handleQuestingComplete = () => {
     if (selected.id === champId) {
       crownChampion(heroConfig[champId].champ)
-      // setChampion(heroConfig[champId].champ)
     } else {
       addToDeds(selected.id)
       setSelected($ => ({
@@ -247,7 +251,8 @@ const Heroes = () => {
     action = isDed ? showHeroList : startQuest
   }
 
-  let chat = 'Select A Hero!'
+  const DED_COUNT = Object.keys(deds).length
+  let chat = DED_COUNT > 0 ? `Oh dear... ${3 - DED_COUNT} more chances! Or the pets are doomed!` : HERO_INSTRUCTIONS
   if (selected) {
     chat = selected.script
   }
@@ -269,8 +274,6 @@ const Heroes = () => {
                   key={fig.id}
                   style={{ cursor: 'pointer' }}
                   onClick={() => setSelected(fig)}
-                  onMouseEnter={() => setTitle(fig.name)}
-                  onMouseLeave={() => setTitle()}
                 >
                   <TvHead {...fig} />
                 </div>
@@ -294,7 +297,7 @@ const Heroes = () => {
         </div>
       )}
 
-      <Menu score={Object.keys(deds).length} chat={chat} cta={cta[state]} action={action} />
+      <Menu score={DED_COUNT} chat={chat} cta={cta[state]} action={action} />
     </>
   )
 }
@@ -318,7 +321,6 @@ const Questing = ({ duration = 3000, onLoadingComplete }) => {
       <div className={styles.loadingContainer}>
 
         <div>
-
           <img src='https://meowpad.coolcatsnft.com/static/media/jo_loading.11d7f820bde9fa48c1ec.gif' width='150px' height='150px' />
         </div>
         <div>

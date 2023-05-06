@@ -13,8 +13,10 @@
     "@fontsource/righteous": "^4.5.7",
     "next": "13.3.4",
     "react": "18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
-    "react-dom-confetti": "^0.2.0"
+    "react-dom-confetti": "^0.2.0",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "standard": "16.0.3"

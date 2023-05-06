@@ -4,13 +4,6 @@ import styles from './style.module.css'
 
 import React, { useState, useEffect } from 'react'
 
-// const ChatBubble = ({ text }) => {
-//   return (
-//     <div className={styles.chat}>
-//       <p>{text}</p>
-//     </div>
-//   )
-// }
 const Button = ({ text, onClick }) => {
   return (
     <button className={styles.cta} onClick={onClick}>
@@ -25,7 +18,7 @@ const Menu = ({ cta, chat, action, score }) => {
       {chat && <ChatBubble text={'  ' + chat} />}
       <div className={styles.container}>
         <div className={styles.section}>
-          {score > 0 && (
+          {score > -1 && (
             <div className={styles.scoreboardContainer}>
               <div>
                 <Image
@@ -37,8 +30,8 @@ const Menu = ({ cta, chat, action, score }) => {
                 />
               </div>
               <div className={styles.score}>
-                <div>
-                  Wins
+                <div style={{ textAlign: 'center' }}>
+                  Heroes Dusted
                 </div>
                 <div className={styles.scoreCount}>
                   {score}
@@ -66,37 +59,37 @@ const Menu = ({ cta, chat, action, score }) => {
 
 export default Menu
 
-const useTypingEffect = (text, typingSpeed = 50) => {
-  const [currentText, setCurrentText] = useState('')
+const useTypingEffect = (text, typingSpeed = 100, delayBeforeTyping = 0) => {
+  const [displayText, setDisplayText] = useState('')
 
   useEffect(() => {
-    let index = 0
-    setCurrentText('')
+    let timeouts = []
+    let cursor = 0
 
-    const typeNextCharacter = () => {
-      if (index < text.length) {
-        setCurrentText((prevText) => prevText + text.charAt(index))
-        index++
-        setTimeout(typeNextCharacter, typingSpeed)
+    const clearAllTimeouts = () => {
+      timeouts.forEach((timeout) => clearTimeout(timeout))
+      timeouts = []
+    }
+
+    const type = () => {
+      if (cursor < text.length) {
+        setDisplayText((prevDisplayText) => prevDisplayText + text.charAt(cursor))
+        cursor += 1
+        timeouts.push(setTimeout(type, typingSpeed))
       }
     }
 
-    // Call the function initially without any delay
-    typeNextCharacter()
+    clearAllTimeouts()
+    setDisplayText('')
+    timeouts.push(setTimeout(type, delayBeforeTyping))
 
-    // Cleanup function to clear any pending timeouts
-    return () => {
-      const maxTimeouts = 1000
-      for (let i = 0; i < maxTimeouts; i++) {
-        clearTimeout(i)
-      }
-    }
-  }, [text, typingSpeed])
+    return () => clearAllTimeouts()
+  }, [text, typingSpeed, delayBeforeTyping])
 
-  return currentText
+  return displayText
 }
 
-const ChatBubble = ({ text, typingSpeed = 50 }) => {
+const ChatBubble = ({ text, typingSpeed = 40 }) => {
   const currentText = useTypingEffect(text, typingSpeed)
   return (
     <div
