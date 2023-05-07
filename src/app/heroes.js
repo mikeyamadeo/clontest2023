@@ -117,12 +117,14 @@ Impressed by these turn of events, Kadabra  🥄✨ granted him the ability to b
     alive: {
       name: 'NFT Nick',
       imgSrc: 'heroes/nftnick.png',
+      bg: '#598698',
       script: 'The hero no cat wants but unfortunately the web 3 space deserves'
     },
     ded: {
       name: 'NFT Nick',
       imgSrc: 'heroes/nftnick.png',
-      script: 'NFT Nick got acquired by OANN and was unavailable. Except they quickly let him go due to unreliable reporting'
+      bg: '#598698',
+      script: 'NFT Nick got acquired by OANN and was unavailable to help. Except they quickly let him go due to unreliable reporting'
     }
   },
   cloncast: {
@@ -176,7 +178,6 @@ The brave soul got hit by an Avada Kadabra 🥄✨ and was roasted in his armor.
       script: `After being hit by low-effort FUD spells that, annoyingly, were having an effect...
 
 The Good Knight flipped on the Villain Arc and became The Dark Wolf Knight...
-
 striking Kadabra 🥄✨ down with a fierce quote tweet that left the grand wizard no choice but to delete twitter and relinquish the pets.`,
       badge: {
         pw: 'TGK',
@@ -218,8 +219,8 @@ const potentialChamps = [
 ]
 
 const alwaysLosers = [
-  'kritten'
-  // 'nftnick'
+  'kritten',
+  'nftnick'
 ]
 
 const currentTimestamp = new Date()

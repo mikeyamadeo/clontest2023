@@ -12,39 +12,58 @@ import ClaimCard from '@ui/claim-card'
 
 export const State = createContext()
 
+const stages = {
+  petball: 'PETBALL',
+  kadabra: 'KADABRA',
+  heroes: 'HEROES',
+  win: 'WIN',
+  lose: 'LOSE'
+}
+
+const stageToBg = {
+  [stages.petball]: '/bg-black.png',
+  [stages.kadabra]: '/bg-purple.png',
+  [stages.heroes]: '/bg-blue.png',
+  [stages.win]: '/bg-champ.png',
+  [stages.lose]: '/bg-black.png'
+
+}
 const StateProvider = ({ children }) => {
-  const [stage, setStage] = useState(0)
+  const [stage, setStage] = useState(stages.petball)
   const [champ, setChampion] = useState()
 
   const triggerNextStage = () => {
-    setStage(stage => stage + 1)
+    if (stage === stages.petball) {
+      setStage(stages.kadabra)
+    }
+    if (stage === stages.kadabra) {
+      setStage(stages.heroes)
+    }
   }
 
   const crownChampion = (config) => {
     setChampion(config)
+    setStage(stages.win)
+  }
+
+  const triggerLossState = () => {
+    setStage(stages.lose)
   }
 
   const playAgain = () => {
     setChampion()
-    setStage(2)
+    setStage(stages.heroes)
   }
-  const state = [
-    { bg: '/bg-black.png' },
-    { bg: '/bg-purple.png' },
-    { bg: '/bg-blue.png' },
-    { bg: '/bg-champ.png' }
-  ]
-
-  const _stage = champ ? 3 : stage
 
   return (
     <State.Provider value={{
-      stage: _stage,
+      stage,
       triggerNextStage,
       champ,
       crownChampion,
+      triggerLossState,
       playAgain,
-      ...state[_stage]
+      bg: stageToBg[stage]
     }}
     >
       {children}
@@ -200,6 +219,8 @@ const TvHead = ({ isGold, ...fig }) => {
   )
 }
 
+const DED_THRESHOLD = 3
+
 const states = {
   ready: 'READY',
   ded: 'DED',
@@ -211,13 +232,12 @@ But choose wisely... only one hero can muster the capacity to defeat the great K
 
 Choose wrong thrice and Kadabra 🥄✨ wins!`
 const Heroes = () => {
-  const { crownChampion } = useContext(State)
+  const { crownChampion, triggerLossState } = useContext(State)
   const cta = {
     [states.ready]: 'Send Hero',
     [states.ded]: 'Select New Hero'
   }
 
-  const [title, setTitle] = useState()
   const [isQuesting, setIsQuesting] = useState(false)
   const [selected, setSelected] = useState(null)
   const [heroList] = useState(getHeroList())
@@ -233,7 +253,6 @@ const Heroes = () => {
 
   const showHeroList = () => {
     setSelected()
-    setTitle()
   }
   const startQuest = () => {
     setIsQuesting(true)
@@ -252,6 +271,13 @@ const Heroes = () => {
     }
     setIsQuesting(false)
   }
+  const DED_COUNT = Object.keys(deds).length
+
+  useEffect(() => {
+    if (DED_COUNT >= DED_THRESHOLD) {
+      triggerLossState()
+    }
+  }, [DED_COUNT])
 
   const heroes = heroList.map(key => {
     const fig = heroConfig[key]
@@ -272,8 +298,7 @@ const Heroes = () => {
     action = isDed ? showHeroList : startQuest
   }
 
-  const DED_COUNT = Object.keys(deds).length
-  let chat = DED_COUNT > 0 ? `Oh dear... ${3 - DED_COUNT} more chances! Or the pets are doomed!` : HERO_INSTRUCTIONS
+  let chat = DED_COUNT > 0 ? `Oh dear... ${3 - DED_COUNT} more chance${DED_COUNT > 1 ? 's' : ''}! Or the pets are doomed!` : HERO_INSTRUCTIONS
   if (selected) {
     chat = selected.script
   }
@@ -336,7 +361,7 @@ const Questing = ({ duration = 3000, onLoadingComplete }) => {
     <div className={`container${isLoading ? '' : ' hidden'}`}>
       <div className={styles.loadingContainer}>
 
-        <div>
+        <div style={{ marginRight: '24px' }}>
           <img src='https://meowpad.coolcatsnft.com/static/media/jo_loading.11d7f820bde9fa48c1ec.gif' width='150px' height='150px' />
         </div>
         <div>
@@ -386,15 +411,60 @@ const Champion = () => {
   )
 }
 
+const Losers = () => {
+  const { playAgain } = useContext(State)
+  return (
+    <div className={styles.container}>
+
+      {/* <ClaimCard
+        {...{
+          img: '/badges/kritten.png',
+          pw: 'KRITTEN',
+          link:
+        }}
+      /> */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        right: '50%',
+        transform: 'translateY(-300px) translateX(-100px)'
+      }}
+      >
+        <div className={styles.levitate}>
+          <img src='/petballgrass.png' alt='Grass Petball' width='100%' />
+        </div>
+      </div>
+      <img
+        className={styles.kadabra}
+        src='./kadabra.gif'
+        alt='Kadabra'
+      />
+
+      <Menu
+        chat={
+        `Those poor pets 😭
+
+Pro tip 1: A hero is randomly destined to "win" each round
+
+Pro tip 2: Some "heroes" will never have a chance to win
+`
+        } cta='Try Again' action={playAgain}
+      />
+    </div>
+  )
+}
+
 function Home () {
   const { stage, bg } = useContext(State)
+
   return (
     <>
 
-      {stage === 0 && <Petball />}
-      {stage === 1 && <Kadabra />}
-      {stage === 2 && <Heroes />}
-      {stage === 3 && <Champion />}
+      {stage === stages.petball && <Petball />}
+      {stage === stages.kadabra && <Kadabra />}
+      {stage === stages.heroes && <Heroes />}
+      {stage === stages.win && <Champion />}
+      {stage === stages.lose && <Losers />}
 
       <div className={styles.coverImageContainer}>
         <img
