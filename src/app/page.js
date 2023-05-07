@@ -306,27 +306,27 @@ const Heroes = () => {
   return (
     <>
       {state === states.select && (
-        <div>
-          <div className={styles.heroContainer}>
+        <div className={styles.heroContainer}>
 
-            <ResponsiveGrid>
-              {heroes.map((fig) => (
-                <div
-                  key={fig.id}
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => setSelected(fig)}
-                >
-                  <TvHead {...fig} />
-                </div>
-              ))}
-            </ResponsiveGrid>
-          </div>
+          <ResponsiveGrid>
+            {heroes.map((fig) => (
+              <div
+                key={fig.id}
+                style={{ cursor: 'pointer' }}
+                onClick={() => setSelected(fig)}
+              >
+                <TvHead {...fig} />
+              </div>
+            ))}
+          </ResponsiveGrid>
         </div>
       )}
       {(state === states.ready || state === states.ded) &&
       !isQuesting &&
        (
-         <HeroQuestScreen hero={selected} onClose={showHeroList} />
+         <div className={styles.container}>
+           <HeroQuestScreen hero={selected} onClose={showHeroList} />
+         </div>
        )}
 
       {isQuesting && (
