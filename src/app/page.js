@@ -8,8 +8,9 @@ import '@fontsource/open-sans/700.css' // Bold weight
 import '@fontsource/righteous/400.css' // Regular weight
 import { getHeroList, heroConfig, getChampion } from './heroes'
 import ConfettiAnimation from './confetti'
+import ClaimCard from '@ui/claim-card'
 
-const State = createContext()
+export const State = createContext()
 
 const StateProvider = ({ children }) => {
   const [stage, setStage] = useState(0)
@@ -74,7 +75,8 @@ const Petball = () => {
     }
   }
   return (
-    <>
+
+    <div className={styles.container}>
       <div onClick={handle}>
 
         <div className={styles.petballContainer}>
@@ -87,7 +89,7 @@ const Petball = () => {
       </div>
       <Menu chat={chat[stepIndex]} cta={cta[stepIndex]} action={triggerNextStage} />
 
-    </>
+    </div>
   )
 }
 
@@ -95,7 +97,7 @@ const Kadabra = () => {
   const { triggerNextStage } = useContext(State)
   return (
     <>
-      <div>
+      <div className={styles.container}>
         <div style={{
           position: 'absolute',
           top: '50%',
@@ -139,8 +141,14 @@ const Kadabra = () => {
           src='./kadabra.gif'
           alt='Kadabra'
         />
+        <Menu
+          chat={`Kadabra 🥄✨, 
+the most aesthetically pleasing shadow wolf alive,
+has been capturing pets in shadow balls!
+
+Something must bet done be for he catches them all!`} cta='Send Halp!' action={triggerNextStage}
+        />
       </div>
-      <Menu chat='Kadabra 🥄✨, the most aesthetically pleasing shadow wolf alive, has been capturing pets in shadow balls! Something must bet done be for he catches them all!' cta='Send Halp!' action={triggerNextStage} />
     </>
   )
 }
@@ -159,6 +167,7 @@ const ResponsiveGrid = ({ children }) => {
 }
 
 const TvHead = ({ isGold, ...fig }) => {
+  const [showName, setShowName] = useState(false)
   const imgSrc = isGold
     ? 'gbheadgold.png'
     : fig.isDed
@@ -166,15 +175,28 @@ const TvHead = ({ isGold, ...fig }) => {
       : 'gbhead.png'
 
   return (
-    <div className={styles.tvHeadContainer}>
-      <div className={styles.hero}>
-        <img src={fig.imgSrc} width='100%' className='heroImg' />
+    <>
+      <div
+        className={styles.tvHeadContainer}
+        onMouseEnter={() => setShowName(true)}
+        onMouseLeave={() => setShowName(false)}
+      >
+        <div className={styles.tvScreenBg} style={{ backgroundColor: fig.bg }} />
+        <div className={styles.hero}>
+          <img src={fig.imgSrc} width='100%' className='heroImg' />
+        </div>
+        {!fig.isDed && <div className={styles.tvScreen} />}
+        <div
+          style={{ opacity: showName && !fig.isDed ? 1 : 0 }}
+          className={styles.heroName}
+        >
+          {fig.name}
+        </div>
+        <div className={styles.tvHead}>
+          <img src={imgSrc} width='100%' />
+        </div>
       </div>
-      {!fig.isDed && <div className={styles.tvScreen} />}
-      <div className={styles.tvHead}>
-        <img src={imgSrc} width='100%' />
-      </div>
-    </div>
+    </>
   )
 }
 
@@ -246,7 +268,6 @@ const Heroes = () => {
   let action = null
   if (selected) {
     const isDed = deds[selected.id]
-    console.log(deds[selected.id], selected.id, 'hmm')
     state = isDed ? states.ded : states.ready
     action = isDed ? showHeroList : startQuest
   }
@@ -261,11 +282,6 @@ const Heroes = () => {
     <>
       {state === states.select && (
         <div>
-          {/* <div className={styles.selectionTitleContainter}>
-            <h1 className={styles.selectionTitle}>
-              {title}
-            </h1>
-          </div> */}
           <div className={styles.heroContainer}>
 
             <ResponsiveGrid>
@@ -358,19 +374,15 @@ const HeroQuestScreen = ({ hero, onClose }) => {
 const Champion = () => {
   const { champ, playAgain } = useContext(State)
   return (
-    <>
+    <div className={styles.champContainer}>
       <ConfettiAnimation />
-      {/* <div className={styles.selectionTitleContainter}>
-        <h1 className={styles.selectionTitle}>
-          {champ.name}
-        </h1>
 
-      </div> */}
-      <div className={styles.bigTvHead}>
-        <TvHead {...champ} isGold />
-      </div>
-      <Menu chat={champ.script} cta='Play Again' action={playAgain} />
-    </>
+      <ClaimCard
+        {...champ}
+      />
+
+      <Menu champ={champ} chat={champ.script} cta='Play Again' action={playAgain} />
+    </div>
   )
 }
 
@@ -379,12 +391,10 @@ function Home () {
   return (
     <>
 
-      <div className={styles.container}>
-        {stage === 0 && <Petball />}
-        {stage === 1 && <Kadabra />}
-        {stage === 2 && <Heroes />}
-        {stage === 3 && <Champion />}
-      </div>
+      {stage === 0 && <Petball />}
+      {stage === 1 && <Kadabra />}
+      {stage === 2 && <Heroes />}
+      {stage === 3 && <Champion />}
 
       <div className={styles.coverImageContainer}>
         <img

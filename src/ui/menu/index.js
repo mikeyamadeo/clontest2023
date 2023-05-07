@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import styles from './style.module.css'
-
 import React, { useState, useEffect } from 'react'
 
 const Button = ({ text, onClick }) => {
@@ -16,8 +15,11 @@ const Menu = ({ cta, chat, action, score }) => {
   return (
     <>
       {chat && <ChatBubble text={'  ' + chat} />}
+
       <div className={styles.container}>
+
         <div className={styles.section}>
+
           {score > -1 && (
             <div className={styles.scoreboardContainer}>
               <div>

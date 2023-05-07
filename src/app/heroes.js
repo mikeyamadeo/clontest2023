@@ -1,51 +1,80 @@
 'use client'
+const colors = {
+  purple: '#aa6ae4',
+  red: '#ff1167',
+  redWolf: '#e33b51',
+  blue: '#7dd1f6',
+  pink: '#ff96cd',
+  ghostBlue: '#99d3eb'
+}
 export const heroConfig = {
   bun: {
     alive: {
       name: 'Bun',
       imgSrc: 'heroes/bun.png',
+      bg: colors.purple,
       script: 'Oh wow. Have you seen the Cool Score on this face face ape? Seems rilla rilla promising'
     },
     ded: {
       name: 'Jail Bun Bait',
       imgSrc: 'heroes/bun-ded.png',
+      bg: colors.purple,
       script: `On the way to confront Kadabra 🥄✨ and rescue the pets, Ser "Dirty" Buns was pulled over and arrested for repeated indecent nipple exposure...
       And it turns out you can't save pets from jail`
     },
     champ: {
-      name: 'Bunner',
+      name: 'Primeape Cat',
       imgSrc: 'heroes/bun-champ.png',
+      bg: colors.purple,
       script: `Kadabra 🥄✨ had our Dirty boi against the ropes...
       until ser buns saw the poor pets in the shadowballs...
-      which sent him in to an ever mounting rage leading to his evolution and victory over the great wizard.`
+      which sent him in to an ever mounting rage leading to his evolution and victory over the great wizard.`,
+      badge: {
+        link: 'https://awrd.gg/4580',
+        pw: 'PRIMEAPE',
+        img: '/badges/bun.png'
+      }
     }
   },
   tasty: {
     alive: {
       name: 'Tasty Snacks',
+      bg: colors.red,
       imgSrc: 'heroes/tasty.png',
       script: 'The last person to play this role as well as Tasty was Heath Ledger. I like our chances.'
     },
     ded: {
-      name: 'Ded Snax',
+      name: 'Tasty Blast Addict',
+      bg: colors.red,
       imgSrc: 'heroes/tasty-ded.png',
-      script: 'The curse of playing Joker continues... Kadabra 🥄✨ turned Tasty into a baja blast and started slurping out his noggin.'
+      script: 'Kadabra 🥄✨ needed only to bribe Tasty with a single Baja Blast to turn away and leave the Pets in Kadabra\'s clutches. The cat needs help.'
     },
     champ: {
       name: 'Tasty Snacks',
-      imgSrc: 'heroes/tasty.png',
-      script: `Some say they hadn't seen such bravery since Tasty drummed up the Cool Cat community to bring Blue to the Macy's day parade.
-      This same courage and bravery earned pets freedom from Kadabra the cursed.`
+      bg: colors.red,
+      imgSrc: 'heroes/tasty-champ.png',
+      script: `Kadabra 🥄✨ recognized Tasty instantly.
+      
+  "Hey you're the guy that makes cat balloons happen. If you can see to it my cat balloon gets in the air... the Pets are yours"
+  
+  A few memes later and it was done.`,
+      badge: {
+        img: '/badges/tasty.png',
+        pw: 'BALLOONIST',
+        link: 'https://awrd.gg/4579'
+      }
     }
   },
   elu: {
     alive: {
       name: 'Elu',
+      bg: colors.pink,
       imgSrc: 'heroes/elu.png',
       script: 'This boy tends to do what he puts his mind to. I like our chances'
     },
     ded: {
       name: 'Elost',
+      bg: colors.ghostBlue,
       imgSrc: 'heroes/elu-ded.png',
       script: `As Elu was about to be Abra Kadabra'd he screamed:
       
@@ -57,8 +86,14 @@ Impressed by these turn of events, Kadabra  🥄✨ granted him the ability to b
     },
     champ: {
       name: 'Elu',
+      bg: '#60b789',
       imgSrc: 'heroes/elu-champ.png',
-      script: 'Elu summoned his chonky ghost boy fren who put the great kadabra to sleep long enough for the pets to be recovered.'
+      script: 'Elu summoned his chonky ghost boy fren who put the great Kadabra 🥄✨ to sleep long enough for the pets to be recovered.',
+      badge: {
+        link: 'https://awrd.gg/4581',
+        img: '/badges/elu.png',
+        pw: 'SNORLAX'
+      }
     }
   },
   lynq: {
@@ -90,9 +125,37 @@ Impressed by these turn of events, Kadabra  🥄✨ granted him the ability to b
       script: 'NFT Nick got acquired by OANN and was unavailable. Except they quickly let him go due to unreliable reporting'
     }
   },
+  cloncast: {
+    alive: {
+      name: 'Cloncast',
+      bg: colors.red,
+      imgSrc: 'heroes/cloncast.png',
+      script: 'Clon is about to stream! Let the vibes begin the end of Kadabra 🥄✨!'
+    },
+    ded: {
+      name: 'Cloncast',
+      bg: colors.red,
+      imgSrc: 'heroes/cloncast-ded.png',
+      script: 'Whelp. The wifi went out again and the stream cut out. RIP vibes'
+    },
+    champ: {
+      name: 'Cloncast',
+      bg: colors.red,
+      imgSrc: 'heroes/cloncast-champ.png',
+      script: `Kadabra 🥄✨ met his maker. Literally.
+      
+Once Cloncast showed Kadabra 🥄✨ where he came from on stream, the grand wizard knelt before his maker and returned the captured pets.`,
+      badge: {
+        link: 'https://awrd.gg/4577',
+        pw: 'CLONCASTIC',
+        img: '/badges/cloncast.png'
+      }
+    }
+  },
   goodknight: {
     alive: {
       name: 'The Good Knight',
+      bg: colors.red,
       imgSrc: 'heroes/goodknight.png',
       script: `Coming out swinging with this choice eh? The Good Knight is basically the Achilles of Cooltopia.
 
@@ -100,17 +163,47 @@ Kadabra 🥄✨ stands no chance`
     },
     ded: {
       name: 'The Dead Knight',
+      bg: colors.red,
       imgSrc: 'heroes/goodknight-ded.png',
       script: `It is good night 💤 to The Good Knight.
 
 The brave soul got hit by an Avada Kadabra 🥄✨ and was roasted in his armor. RIP Townhall Threads 🪦`
     },
     champ: {
-      name: 'The Great Knight',
-      imgSrc: 'heroes/goodknight.png',
-      script: `With the might of the Cool Cats counsel at his back...
-The Great Knight struck Kadabra 🥄✨ down with a fierce quote tweet that left the grand wizard no choice but to delete twitter and relinquish the pets.`
+      name: 'The Dark Knight',
+      bg: colors.redWolf,
+      imgSrc: 'heroes/goodknight-champ.png',
+      script: `After being hit by low-effort FUD spells that, annoyingly, were having an effect...
+
+The Good Knight flipped on the Villain Arc and became The Dark Wolf Knight...
+
+striking Kadabra 🥄✨ down with a fierce quote tweet that left the grand wizard no choice but to delete twitter and relinquish the pets.`,
+      badge: {
+        pw: 'TGK',
+        link: 'https://awrd.gg/4578',
+        img: '/badges/tgk.png'
+      }
     }
+  },
+  kritten: {
+    alive: {
+      name: 'The Kritten',
+      bg: colors.blue,
+      imgSrc: 'heroes/kritten.png',
+      script: ''
+    },
+    ded: {
+      name: 'Sushi Hat',
+      bg: colors.blue,
+      imgSrc: 'heroes/kritten-ded.png',
+      script: 'Kadabra 🥄✨ made quick work of The Kritten and sold the remains as hats to fellow Shadow Wolves.'
+    }
+    // champ: {
+    //   name: 'The Kritten',
+    //   bg: colors.blue,
+    //   imgSrc: 'heroes/kritten.png',
+    //   script: 'baller'
+    // }
   }
 }
 
@@ -118,15 +211,15 @@ const potentialChamps = [
   'bun',
   'elu',
   'tasty',
-  'lynq',
-  'goodknight'
+  'goodknight',
+  // 'kritten',
   // 'schmitty'
-  // 'clon',
+  'cloncast'
 ]
 
 const alwaysLosers = [
-  // 'kritten',
-  'nftnick'
+  'kritten'
+  // 'nftnick'
 ]
 
 const currentTimestamp = new Date()
