@@ -1,9 +1,9 @@
 import styles from './card.module.css'
 
-const Card = ({ badge, name }) => {
+const Card = ({ badge, name, imgSrc }) => {
   return (
     <div className={styles.card}>
-      <img className={styles.image} src={badge.img} alt=' badge' />
+      <img className={styles.image} src={imgSrc} alt=' badge' />
       <a
         className={styles.button}
         href={badge.link}

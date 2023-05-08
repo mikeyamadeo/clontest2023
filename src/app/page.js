@@ -406,7 +406,10 @@ const Champion = () => {
         {...champ}
       />
 
-      <Menu champ={champ} chat={champ.script} cta='Play Again' action={playAgain} />
+      <Menu
+        showPets
+        champ={champ} chat={champ.script} cta='Play Again' action={playAgain}
+      />
     </div>
   )
 }
@@ -442,7 +445,7 @@ const Losers = () => {
 
       <Menu
         chat={
-        `Those poor pets 😭
+        `${DED_THRESHOLD} Heroes failed to defeat Kadabra the Mighty. Those poor pets 😭
 
 Pro tip 1: A hero is randomly destined to "win" each round
 

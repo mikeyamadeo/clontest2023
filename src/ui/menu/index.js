@@ -11,7 +11,7 @@ const Button = ({ text, onClick }) => {
   )
 }
 
-const Menu = ({ cta, chat, action, score }) => {
+const Menu = ({ cta, chat, action, score, showPets }) => {
   return (
     <>
       {chat && <ChatBubble text={'  ' + chat} />}
@@ -19,7 +19,19 @@ const Menu = ({ cta, chat, action, score }) => {
       <div className={styles.container}>
 
         <div className={styles.section}>
-
+          {showPets && (
+            <div className={styles.petContainer}>
+              <div className={styles.jumping}>
+                <img width='69px' src='/petwater.png' />
+              </div>
+              <div className={styles.jumping}>
+                <img width='69px' src='/petgrass.png' />
+              </div>
+              <div className={styles.jumping}>
+                <img width='69px' src='/petair.png' />
+              </div>
+            </div>
+          )}
           {score > -1 && (
             <div className={styles.scoreboardContainer}>
               <div>

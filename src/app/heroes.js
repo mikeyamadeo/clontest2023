@@ -210,17 +210,17 @@ striking Kadabra 🥄✨ down with a fierce quote tweet that left the grand wiza
 
 const potentialChamps = [
   'bun',
-  'elu',
-  'tasty',
-  'goodknight',
+  'elu'
+  // 'tasty'
+  // 'goodknight',
   // 'kritten',
   // 'schmitty'
-  'cloncast'
+  // 'cloncast'
 ]
 
 const alwaysLosers = [
-  'kritten',
-  'nftnick'
+  'kritten'
+  // 'nftnick'
 ]
 
 const currentTimestamp = new Date()
