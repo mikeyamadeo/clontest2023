@@ -11,7 +11,7 @@ const Button = ({ text, onClick }) => {
   )
 }
 
-const Menu = ({ cta, chat, action, score, showPets }) => {
+const Menu = ({ cta, chat, action, score, showPets, cta2, action2 }) => {
   return (
     <>
       {chat && <ChatBubble text={'  ' + chat} />}
@@ -19,6 +19,7 @@ const Menu = ({ cta, chat, action, score, showPets }) => {
       <div className={styles.container}>
 
         <div className={styles.section}>
+          {cta2 && <Button text={cta2} onClick={action2} />}
           {showPets && (
             <div className={styles.petContainer}>
               <div className={styles.jumping}>

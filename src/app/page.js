@@ -415,7 +415,17 @@ const Champion = () => {
 }
 
 const Losers = () => {
+  const [claim, setClaim] = useState(false)
   const { playAgain } = useContext(State)
+
+  const chat = claim
+    ? 'The Kritten may not have been helpful but he makes for a good badge'
+    : `${DED_THRESHOLD} Heroes failed to defeat Kadabra the Mighty. Those poor pets 😭
+
+  Pro tip 1: A hero is randomly destined to "win" each round
+  
+  Pro tip 2: Some "heroes" will never have a chance to win
+  `
   return (
     <div className={styles.container}>
 
@@ -426,31 +436,47 @@ const Losers = () => {
           link:
         }}
       /> */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        right: '50%',
-        transform: 'translateY(-300px) translateX(-100px)'
-      }}
-      >
-        <div className={styles.levitate}>
-          <img src='/petballgrass.png' alt='Grass Petball' width='100%' />
-        </div>
-      </div>
-      <img
-        className={styles.kadabra}
-        src='./kadabra.gif'
-        alt='Kadabra'
-      />
+
+      {claim
+        ? (
+          <ClaimCard
+            {...{
+              name: 'The Kritten',
+              imgSrc: 'heroes/kritten.png',
+              badge: {
+                link: 'https://awrd.gg/4618',
+                pw: 'SUSHI',
+                img: '/heroes/kritten.png'
+              }
+            }}
+          />
+          )
+        : (
+          <>
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              right: '50%',
+              transform: 'translateY(-300px) translateX(-100px)'
+            }}
+            >
+              <div className={styles.levitate}>
+                <img src='/petballgrass.png' alt='Grass Petball' width='100%' />
+              </div>
+            </div>
+            <img
+              className={styles.kadabra}
+              src='./kadabra.gif'
+              alt='Kadabra'
+            />
+          </>
+          )}
 
       <Menu
+        cta2='Claim Consolation'
+        action2={() => setClaim(true)}
         chat={
-        `${DED_THRESHOLD} Heroes failed to defeat Kadabra the Mighty. Those poor pets 😭
-
-Pro tip 1: A hero is randomly destined to "win" each round
-
-Pro tip 2: Some "heroes" will never have a chance to win
-`
+        chat
         } cta='Try Again' action={playAgain}
       />
     </div>

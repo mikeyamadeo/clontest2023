@@ -5,7 +5,8 @@ const colors = {
   redWolf: '#e33b51',
   blue: '#7dd1f6',
   pink: '#ff96cd',
-  ghostBlue: '#99d3eb'
+  ghostBlue: '#99d3eb',
+  orange: '#ff8a27'
 }
 export const heroConfig = {
   bun: {
@@ -197,7 +198,12 @@ striking Kadabra 🥄✨ down with a fierce quote tweet that left the grand wiza
       name: 'Sushi Hat',
       bg: colors.blue,
       imgSrc: 'heroes/kritten-ded.png',
-      script: 'Kadabra 🥄✨ made quick work of The Kritten and sold the remains as hats to fellow Shadow Wolves.'
+      script: 'Kadabra 🥄✨ made quick work of The Kritten and sold the remains as hats to fellow Shadow Wolves.',
+      badge: {
+        link: 'https://awrd.gg/4618',
+        pw: 'SUSHI',
+        img: '/heroes/kritten.png'
+      }
     }
     // champ: {
     //   name: 'The Kritten',
@@ -205,6 +211,31 @@ striking Kadabra 🥄✨ down with a fierce quote tweet that left the grand wiza
     //   imgSrc: 'heroes/kritten.png',
     //   script: 'baller'
     // }
+  },
+  schmitty: {
+    alive: {
+      name: 'Eric The Blue',
+      bg: colors.orange,
+      imgSrc: 'heroes/etheblue.png',
+      script: 'The number of Pet\'s Kadabra🥄✨ has captured is formidable. Good thinking to send a hero with an even more formidable collection of Pets.'
+    },
+    ded: {
+      name: 'Eric The Beclowned',
+      bg: '#09090b',
+      imgSrc: 'heroes/etheblue-ded.png',
+      script: 'Knowing the intimate desire of Eric\'s heart, Kadabra🥄✨ had one of his jester\'s lure Eric away from his quest to save the pets'
+    },
+    champ: {
+      name: 'The Pet Master',
+      bg: colors.orange,
+      imgSrc: 'heroes/etheblue-champ.png',
+      script: 'The very best Pet collector, like no one ever was, has its perks, including the ability to enter werepet form. In werepet form, Eric was able to wield all the powers of his greatest pets to defeat Kadabra🥄✨ and free his Pet\'s kin',
+      badge: {
+        link: 'https://awrd.gg/4617',
+        pw: 'PETMASTER',
+        img: '/badges/EricTheBlue.png'
+      }
+    }
   }
 }
 
@@ -213,8 +244,7 @@ const potentialChamps = [
   'elu',
   'tasty',
   'goodknight',
-  // 'kritten',
-  // 'schmitty'
+  'schmitty',
   'cloncast'
 ]
 
@@ -223,13 +253,13 @@ const alwaysLosers = [
   'nftnick'
 ]
 
-const currentTimestamp = new Date()
-const seed = currentTimestamp.setSeconds(0, 0)
+// const currentTimestamp = new Date()
+// const seed = currentTimestamp.setSeconds(0, 0)
 
 export const getHeroList = () => shuffleArray([
   ...potentialChamps,
   ...alwaysLosers
-], seed)
+]).slice(0, 6)
 
 function selectRandomString (strings) {
   const randomIndex = Math.floor(Math.random() * strings.length)
@@ -240,21 +270,21 @@ export const getChampion = () => {
   return selectRandomString(potentialChamps)
 }
 
-function mulberry32 (seed) {
-  return function () {
-    let t = (seed += 0x6d2b79f5)
-    t = Math.imul(t ^ (t >>> 15), t | 1)
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-  }
-}
+// function mulberry32 (seed) {
+//   return function () {
+//     let t = (seed += 0x6d2b79f5)
+//     t = Math.imul(t ^ (t >>> 15), t | 1)
+//     t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+//     return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+//   }
+// }
 
 function shuffleArray (array, seed) {
   const shuffledArray = [...array]
-  const random = mulberry32(seed)
+  // const random = mulberry32(seed)
 
   for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(random() * (i + 1));
+    const j = Math.floor(Math.random() * (i + 1));
     [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]
   }
 
